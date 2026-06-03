@@ -35,8 +35,8 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/notes/:noteId', (req, res) => {
-  const { nodeId } = req.params;
-  res.json({ message: `Retrieved note with ID: ${nodeId}` });
+  const { noteId } = req.params;
+  res.json({ message: `Retrieved note with ID: ${noteId}` });
 });
 
 // Маршрут для тестування middleware помилки
