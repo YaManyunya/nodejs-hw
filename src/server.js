@@ -8,6 +8,8 @@ import { errorHandler } from './middleware/errorHandler.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import notesRoutes from './routes/notesRoutes.js';
 
+import { errors } from 'celebrate';
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -29,6 +31,7 @@ app.use(notesRoutes);
 
 app.use(notFoundHandler);
 
+app.use(errors());
 // Middleware для обробки помилок
 app.use(errorHandler);
 
