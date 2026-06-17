@@ -21,12 +21,17 @@ const notesSchema = new Schema(
       required: false,
       enum: TAGS,
     },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
   },
   {
     timestamps: true,
   },
 );
 
-notesSchema.index({ tag: 1 });
+notesSchema.index({ userId: 1, tag: 1 });
 
 export const Note = model('Note', notesSchema);
